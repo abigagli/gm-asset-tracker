@@ -1,0 +1,27 @@
+# Copyright (c) 2024 Nordic Semiconductor
+# SPDX-License-Identifier: LicenseRef-Nordic-5-Clause
+
+manifest:
+  self:
+    west-commands: scripts/west-commands.yml
+    path: project
+
+  remotes:
+    - name: ncs
+      url-base: https://github.com/nrfconnect
+    - name: zephyr-upstream
+      url-base: https://github.com/zephyrproject-rtos
+
+  projects:
+    - name: nrf
+      remote: ncs
+      repo-path: sdk-nrf
+      revision: a4367fdc0db21331df42b79fd16d5797b559f732
+      import:
+        path-prefix: external
+      clone-depth: 1
+    - name: zephyr-lang-rust
+      revision: main
+      path: external/modules/lang/rust
+      remote: zephyr-upstream
+      clone-depth: 1
